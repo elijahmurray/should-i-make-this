@@ -1,2 +1,23 @@
-%h1 Page#index
-%p Find me in app/views/page/index.html.erb
+%h1 get feedback and grow your prelaunch audience
+%p.subtext producthunt for ideas and prototypes
+%p yesterday i had an idea to build a site where you can get feedback on your ideas/MVPs and grow your prelaunch mailing list. I said if I got 20 signups, I would build it. I got 20 signups. So i'm building it.
+
+%ul
+  %li= link_to "wireframe links (that i did in 20 minutes) here", "https://xd.adobe.com/view/13acdc2f-4c9c-4c80-72d5-c776ef8b3832-659d/", class: 'text-link', target: :_blank
+  %li= link_to "live stream of building this website!", "https://www.twitch.tv/elijah_murray", class: 'text-link', target: :_blank
+
+%hr
+%h3 get notified of updates and when we launch
+
+
+<!-- Begin Mailchimp Signup Form -->
+#mc_embed_signup
+  %form.validate.form-inline.mb-5{:action => "https://matterproductstudio.us17.list-manage.com/subscribe/post?u=1545371c32b90177a42968f03&id=6369e26127", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+    #mc_embed_signup_scroll.form-group.mt-3
+      %input#mce-EMAIL.email.form-control.col-5{:name => "EMAIL", :placeholder => "email address", :required => "", :type => "email", :value => "", style: "width: 700px"}
+      %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
+        %input{:name => "b_1545371c32b90177a42968f03_6369e26127", :tabindex => "-1", :type => "text", :value => ""}
+      %input#mc-embedded-subscribe.btn.btn-danger.ml-2{:name => "subscribe", :type => "submit", :value => "Subscribe"}
+
+%hr
+%h4 Reload this page to see progress over the next 48 hours!
