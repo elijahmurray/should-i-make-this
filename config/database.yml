@@ -24,7 +24,7 @@ default: &default
 
 development:
   <<: *default
-  database: one_book_club_development
+  database: should_i_make_this_development
 
 # The specified database role being used to connect to postgres.
 # To create additional roles in postgres see `$ createuser --help`.
@@ -59,7 +59,7 @@ development:
 
 test:
   <<: *default
-  database: one_book_club_test
+  database: should_i_make_this_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: one_book_club_production
-  username: myapp
+  database: should_i_make_this_production
+  username: should_i_make_this
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
