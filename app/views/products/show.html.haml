@@ -1,0 +1,22 @@
+%p
+  %b Name:
+  = @product.name
+%p
+  %b Stage:
+  = @product.stage
+%p
+  %b Category:
+  = @product.category
+%p
+  %b Description:
+  = @product.description
+%p
+  %b Type:
+  = @product.product_type
+%p
+  %b Url:
+  = @product.url
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path

@@ -1,0 +1,10 @@
+.row.mb-5
+  .card.col-12.text-white.bg-secondary.text-center
+    .card-body
+      %h5.card-title Get Feedback on Your Idea
+      %p.card-text And build your prelaunch email list at the same time
+      =link_to "Get Started", new_product_path, class: 'btn btn-primary'
+- @products.each do |product|
+  = render partial: 'product_card', locals: {product: product}
+    
+%br

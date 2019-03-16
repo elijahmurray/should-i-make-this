@@ -1,0 +1,17 @@
+.row
+  .card.col-7.offset-1
+    .card-body
+      %h3.card-title=link_to product.name, product
+      .card-text
+        %p= "Stage: #{product.stage}"
+        %p= product.description
+        %p= product.product_type
+        %p= product.url
+        %span 3
+        %i.fa.fa-comment-alt
+  .col-1
+  .card.col-2.text-center
+    .my-auto 
+      %i.fa.fa-chevron-up
+      %h6 6
+

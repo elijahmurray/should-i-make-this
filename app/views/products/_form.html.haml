@@ -1,0 +1,14 @@
+-# frozen_string_literal: true
+= simple_form_for(@product) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :name
+    = f.input :stage, collection: Product::STAGES
+    = f.input :description, as: :text, :input_html => { 'rows' => 4}
+    = f.input :product_type
+    = f.input :url
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
