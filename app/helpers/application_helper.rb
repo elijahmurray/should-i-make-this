@@ -12,4 +12,8 @@ module ApplicationHelper
     end
     nil
   end
+
+  def current_user_is_owner?(object)
+      current_user == object.user
+  end
 end

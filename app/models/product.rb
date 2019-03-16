@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  belongs_to :user
   TYPES = %w(mobile_app website browser_extension physical_product voice_app)
   STAGES = %w(
     Idea

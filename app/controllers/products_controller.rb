@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :user_is_owner?, only: [:edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
@@ -15,7 +16,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    @product = current_user.products.build
   end
 
   # GET /products/1/edit
@@ -25,7 +26,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
 
     respond_to do |format|
       if @product.save
@@ -72,4 +73,10 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :stage, :category, :description, :product_type, :url)
     end
+
+    def user_is_owner?
+      is_owner = current_user == @product.user
+      redirect_to @product unless is_owner
+    end
+
 end
