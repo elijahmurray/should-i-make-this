@@ -84,4 +84,4 @@ production:
   <<: *default
   database: should_i_make_this_production
   username: should_i_make_this
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SHOULD_I_MAKE_THIS_DATABASE_PASSWORD'] %>
