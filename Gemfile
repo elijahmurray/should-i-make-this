@@ -81,6 +81,7 @@ gem 'haml'
 group :development do
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'rename'
+  gem  'rb-readline'
 end
 
 # gem 'friendly_id', '~> 5.1.0'
