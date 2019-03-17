@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_17_202820) do
+ActiveRecord::Schema.define(version: 2019_03_17_222019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -54,5 +64,7 @@ ActiveRecord::Schema.define(version: 2019_03_17_202820) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
   add_foreign_key "products", "users"
 end

@@ -25,7 +25,7 @@
           = f.submit 'Add Comment', class: 'btn btn-primary'
         %hr
         - @product.comments.each do |comment|
-          = render partial: 'comment', locals: {product: comment}
+          = render partial: 'comment', locals: {comment: comment}
   .col-md-2
     .card.text-center.vote-card
       .my-auto 
