@@ -6,7 +6,7 @@
   .form-inputs
     = f.input :name
     = f.input :stage, collection: Product::STAGES.map{|t| t.humanize}
-    = f.input :url
+    = f.input :url, placeholder: 'include http://'
     = f.input :product_type, collection: Product::TYPES.map{|t| t.humanize}
     = f.input :description, as: :text, :input_html => { 'rows' => 4}
 
