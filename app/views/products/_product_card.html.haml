@@ -8,7 +8,7 @@
           %p= product.description
           %p= product.product_type
           %p= product.url
-          %span 3
+          %span=product.comments.count
           %i.fa.fa-comment-alt
   .col-md-2
     .card.vote-card
