@@ -21,10 +21,10 @@
             = link_to 'Delete', product_path(@product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'text-danger'
       .card-footer
         = simple_form_for [@product, @product.comments.build], html: { class: 'form-inline'} do |f|
-          = f.input :body, label: false, input_html: {class: 'mr-3'}
+          = f.input :body, as: :string, label: false, input_html: {class: 'mr-3'}, placeholder: "What do you think about this idea?"
           = f.submit 'Add Comment', class: 'btn btn-primary'
         %hr
-        - @product.comments.each do |comment|
+        - @comments.each do |comment|
           = render partial: 'comment', locals: {comment: comment}
   .col-md-2
     .card.text-center.vote-card
