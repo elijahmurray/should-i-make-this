@@ -13,14 +13,13 @@
   .col-md-2
     .card.text-center.vote-card
       .my-auto 
-        -if current_user && !current_user.voted_up_on?(product)
-          =link_to like_product_path(product), method: :put do
-            .text-default
-              =fa_icon('chevron-up')
-              %h6=product.get_upvotes.size
-        -else
+        -if current_user && current_user.voted_up_on?(product)
           =link_to dislike_product_path(product), method: :put do
             %div{class: "#{current_user.voted_for?(product) ? 'text-danger' : ''}"}
               =fa_icon('chevron-up')
               %h6=product.get_upvotes.size
-
+        -else
+          =link_to like_product_path(product), method: :put do
+            .text-default
+              =fa_icon('chevron-up')
+              %h6=product.get_upvotes.size
