@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :user_is_owner?, only: [:edit, :update, :destroy]
 
@@ -7,6 +7,18 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+  end
+
+  def upvote
+    authenticate_user!
+    @product.liked_by current_user
+    redirect_to products_path
+  end
+
+  def downvote
+    authenticate_user!
+    @product.downvote_from current_user
+    redirect_to products_path
   end
 
   # GET /products/1

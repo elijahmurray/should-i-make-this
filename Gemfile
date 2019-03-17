@@ -77,6 +77,7 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'rails-i18n', '~> 5.1'
 gem 'haml-rails'
 gem 'haml'
+gem 'acts_as_votable', '~> 0.12.0'
 
 group :development do
   gem 'guard-livereload', '~> 2.5', require: false

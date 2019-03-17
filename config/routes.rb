@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :products
+  resources :products do
+    member do
+      put "like", to: "products#upvote"
+      put "dislike", to: "products#downvote"
+    end
+  end
+
   get 'page/index'
   devise_for :users
 

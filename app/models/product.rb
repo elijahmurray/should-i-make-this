@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  acts_as_votable
+
   belongs_to :user
   TYPES = %w(mobile_app website browser_extension physical_product voice_app)
   STAGES = %w(
