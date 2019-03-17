@@ -1,6 +1,6 @@
-%b=comment.user.email
+%b=comment.user.try(:email)
 .row
   .col-11
     %p=comment.body
   .col-1
-    = render partial: 'vote_button', locals: {vote_object: comment}
+    /= render partial: 'vote_button', locals: {vote_object: comment}

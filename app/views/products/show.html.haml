@@ -20,8 +20,8 @@
             \|
             = link_to 'Delete', product_path(@product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'text-danger'
       .card-footer
-        = simple_form_for @product, html: { class: 'form-inline'} do |f|
-          = f.input :name, label: false, input_html: {class: 'mr-3'}
+        = simple_form_for [@product, @product.comments.build], html: { class: 'form-inline'} do |f|
+          = f.input :body, label: false, input_html: {class: 'mr-3'}
           = f.submit 'Add Comment', class: 'btn btn-primary'
         %hr
         - @product.comments.each do |comment|
