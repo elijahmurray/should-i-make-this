@@ -1,9 +1,21 @@
-.row.mb-5
-  .card.col-12.text-white.bg-secondary.text-center
-    .card-body
-      %h5.card-title Get Feedback on Your Idea
-      %p.card-text And build your prelaunch email list at the same time
-      =link_to "Get Started", new_product_path, class: 'btn btn-primary'
+<!-- Begin Mailchimp Signup Form -->
+#mc_embed_signup.row
+  .col-12.mb-4{style: "margin-top: -40px"}
+    %form.validate.form-inline{:action => "https://matterproductstudio.us17.list-manage.com/subscribe/post?u=1545371c32b90177a42968f03&id=6369e26127", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+      #mc_embed_signup_scroll.form-group.mt-3.mx-auto
+        %span.pr-3 Notify me when I can build my pre-launch mailing list
+        %input#mce-EMAIL.email.form-control{:name => "EMAIL", :placeholder => "email address", :required => "", :type => "email", :value => "", style: ""}
+        %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
+          %input{:name => "b_1545371c32b90177a42968f03_6369e26127", :tabindex => "-1", :type => "text", :value => ""}
+        %input#mc-embedded-subscribe.btn.btn-danger.ml-2{:name => "subscribe", :type => "submit", :value => "Let me know"}
+
+/.row.mb-2
+/  .card.col-12.text-white.bg-secondary.text-center
+/    .card-body
+/      %h5.card-title Get Feedback on Your Idea
+/      %p.card-text And build your prelaunch email list at the same time
+/      =link_to "Get Started", new_product_path, class: 'btn btn-primary'
+
 - @products.each do |product|
   = render partial: 'product_card', locals: {product: product}
     
