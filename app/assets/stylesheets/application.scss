@@ -18,6 +18,9 @@
 @import "footer";
 @import "navbar";
 
+//Pages SCSS
+@import "products";
+
 body {
   background: $light-gray;
 }
