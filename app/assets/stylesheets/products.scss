@@ -5,3 +5,10 @@
 .card.vote-card {
   min-height: 100px;
 }
+
+.form-inline .form-group {
+  flex: 1 0 auto;
+  input.form-control {
+    flex: 1;
+  }
+}

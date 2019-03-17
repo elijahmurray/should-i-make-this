@@ -1,23 +1,32 @@
-%p
-  %b Name:
-  = @product.name
-%p
-  %b Stage:
-  = @product.stage
-%p
-  %b Category:
-  = @product.category
-%p
-  %b Description:
-  = @product.description
-%p
-  %b Type:
-  = @product.product_type
-%p
-  %b Url:
-  = @product.url
+.row.mb-3.mt-5
+  .col-md-10
+    .card
+      .card-body
+        %h3.card-title= @product.name
+        .card-text
+          %p= "Stage: #{@product.stage}"
+          %p= @product.description
+          %p= @product.product_type
+          %p= @product.url
+          %p
+            %b Type:
+            = @product.product_type
+          %p
+            %b Url:
+            = @product.url
 
-- if current_user_is_owner?(@product)
-  = link_to 'Edit', edit_product_path(@product)
-  \|
-  = link_to 'Delete', product_path(@product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'text-danger'
+          - if current_user_is_owner?(@product)
+            = link_to 'Edit', edit_product_path(@product)
+            \|
+            = link_to 'Delete', product_path(@product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'text-danger'
+      .card-footer
+        = simple_form_for @product, html: { class: 'form-inline'} do |f|
+          = f.input :name, label: false, input_html: {class: 'mr-3'}
+          = f.submit 'Add Comment', class: 'btn btn-primary'
+        %hr
+        = render partial: 'comment', locals: {product: @product}
+  .col-md-2
+    .card.text-center.vote-card
+      .my-auto 
+        = render partial: 'vote_button', locals: {vote_object: @product}
+

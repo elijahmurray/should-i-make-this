@@ -1,0 +1,12 @@
+.text-center
+  -if current_user && current_user.voted_up_on?(vote_object)
+    =link_to dislike_product_path(vote_object), method: :put do
+      %div{class: "#{current_user.voted_for?(vote_object) ? 'text-danger' : ''}"}
+        =fa_icon('chevron-up')
+        %h6=vote_object.get_upvotes.size
+  -else
+    =link_to like_product_path(vote_object), method: :put do
+      .text-default
+        =fa_icon('chevron-up')
+        %h6=vote_object.get_upvotes.size
+
