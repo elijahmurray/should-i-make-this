@@ -23,4 +23,8 @@
     .container.mt-2
       = flash_messages
       = yield
-    = render 'layouts/footer'
+    /= render 'layouts/footer'
+    .by-a
+      =link_to "https://twitter.com/elijahmurray" do
+        = image_tag gravatar_url("elijah@matterproductstudio.com", 30), class: 'rounded-circle mr-1'
+        = "@elijahmurray" 

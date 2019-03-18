@@ -16,4 +16,9 @@ module ApplicationHelper
   def current_user_is_owner?(object)
     !current_user.nil? && current_user == object.user
   end
+
+  def gravatar_url(email, size)
+    gravatar_id = Digest::MD5.hexdigest(email)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
+  end
 end

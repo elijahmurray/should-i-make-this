@@ -24,3 +24,20 @@
 body {
   background: $light-gray;
 }
+
+.by-a {
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  border-top-left-radius: 3px;
+  padding: .75rem;
+  position: fixed;
+  border-left: 1px solid #efefef;
+  border-top: 1px solid #efefef;
+  a {
+    &:hover, &:active, &:focus {
+      color: #dc3545;
+      text-decoration: none;
+    }
+  }
+}

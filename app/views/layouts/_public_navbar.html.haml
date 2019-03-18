@@ -1,12 +1,12 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm
   .container
-    %a.navbar-brand{:href => "/"}= I18n.t('company_name')
+    %a.navbar-brand{:href => "/"}
+      = image_tag 'should-i-make-this-logo', height: '30'
+      = I18n.t('company_name')
     %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
       %ul.navbar-nav.ml-auto
-        %li.nav-item
-          = link_to 'Products', products_path, class: 'nav-link'
         %li.nav-item
           = link_to 'About', page_index_path, class: 'nav-link'
         %li.nav-item
