@@ -66,7 +66,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem 'webpacker'
 #
 # Bootstrap
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.2'
 
 gem 'jquery-rails'
 gem 'font-awesome-rails'
