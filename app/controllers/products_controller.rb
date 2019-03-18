@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :follow, :unfollow]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :user_is_owner?, only: [:edit, :update, :destroy]
 
@@ -20,6 +20,19 @@ class ProductsController < ApplicationController
     @product.downvote_from current_user
     redirect_to products_path
   end
+
+  def follow
+    authenticate_user!
+    current_user.follow(@product)
+    redirect_to @product
+  end
+
+  def unfollow
+    authenticate_user!
+    current_user.stop_following(@product)
+    redirect_to @product
+  end
+
 
   # GET /products/1
   # GET /products/1.json

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   acts_as_voter
+  acts_as_follower
+
   has_many :products
   has_many :comments
 
