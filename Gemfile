@@ -86,6 +86,8 @@ group :development do
   gem  'rb-readline'
 end
 
+gem 'newrelic_rpm'
+
 # gem 'friendly_id', '~> 5.1.0'
 #
 #
