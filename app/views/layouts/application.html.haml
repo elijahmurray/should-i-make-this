@@ -9,6 +9,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'https://pro.fontawesome.com/releases/v5.7.2/css/all.css', media: 'all', 'data-turbolinks-track': 'reload', integrity:ENV['FONT_AWESOME_INTEGRITY'], crossorigin: 'anonymous'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag asset_path('favicon.png')
     - if Rails.env.production?
       :javascript
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

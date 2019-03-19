@@ -33,7 +33,7 @@ Rename your database in `config/database.yml`
 
 
 Run:
-`foreman start`
+`foreman start -f Procfile.dev`
 
 * Services (job queues, cache servers, search engines, etc.)
 For faster development, this application uses a livereloader plugin with Chrome. [Read more about it here](https://github.com/guard/guard-livereload). This is entirely optional.

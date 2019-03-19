@@ -13,4 +13,6 @@
     .card.vote-card
       .my-auto 
         = render partial: 'vote_button', locals: {vote_object: product}
+    .text-center.mt-3
+      = render partial: 'follow_button', locals: {product: product}
         

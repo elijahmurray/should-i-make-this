@@ -12,25 +12,26 @@ class ProductsController < ApplicationController
   def upvote
     authenticate_user!
     @product.liked_by current_user
-    redirect_to products_path
+    current_user.follow(@product)
+    redirect_to request.referrer, notice: "You are now following this product! If you would like to vote and not follow, click unfollow."
   end
 
   def downvote
     authenticate_user!
     @product.downvote_from current_user
-    redirect_to products_path
+    redirect_to request.referrer
   end
 
   def follow
     authenticate_user!
     current_user.follow(@product)
-    redirect_to @product
+    redirect_to request.referrer
   end
 
   def unfollow
     authenticate_user!
     current_user.stop_following(@product)
-    redirect_to @product
+    redirect_to request.referrer
   end
 
 
