@@ -31,7 +31,7 @@
       .my-auto 
         = render partial: 'vote_button', locals: {vote_object: @product}
     .text-center.mt-3
-      - if !current_user.following?(@product)
-        =link_to "Follow", follow_product_path(@product), method: :put, class: "btn btn-danger btn-sm"
-      - else
+      - if current_user && current_user.following?(@product)
         =link_to "Unfollow", unfollow_product_path(@product), method: :put, class: "btn btn-outline-danger btn-sm"
+      - else
+        =link_to "Follow", follow_product_path(@product), method: :put, class: "btn btn-danger btn-sm"
