@@ -6,7 +6,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all.order(:cached_votes_up => :desc)
+    this_week_start = Date.today.beginning_of_week
+    @products_this_week = products_between(this_week_start, this_week_start + 7).order(:cached_votes_up => :desc)
+    last_week_start = this_week_start-7
+    @products_last_week = products_between(last_week_start, last_week_start + 7).order(:cached_votes_up => :desc)
+    previous_week_start = last_week_start-7
+    @products_previous_weeks = products_between(Date.today-365, last_week_start).order(:cached_votes_up => :desc)
   end
 
   def upvote
@@ -104,6 +109,10 @@ class ProductsController < ApplicationController
     def user_is_owner?
       is_owner = current_user == @product.user
       redirect_to @product unless is_owner
+    end
+
+    def products_between(start_date, end_date)
+      Product.all.where('created_at > ? AND created_at < ?', start_date, end_date)
     end
 
 end

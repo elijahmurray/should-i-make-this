@@ -9,14 +9,21 @@
           %input{:name => "b_1545371c32b90177a42968f03_6369e26127", :tabindex => "-1", :type => "text", :value => ""}
         %input#mc-embedded-subscribe.btn.btn-danger.ml-2{:name => "subscribe", :type => "submit", :value => "Let me know"}
 
-/.row.mb-2
-/  .card.col-12.text-white.bg-secondary.text-center
-/    .card-body
-/      %h5.card-title Get Feedback on Your Idea
-/      %p.card-text And build your prelaunch email list at the same time
-/      =link_to "Get Started", new_product_path, class: 'btn btn-primary'
-
-- @products.each do |product|
+%h4.pb-3 This week
+- if @products_this_week.empty?
+  .empty-week.text-center.py-5.text-muted= "Nothing here! To bad, so sad..."
+- @products_this_week.each do |product|
   = render partial: 'product_card', locals: {product: product}
+%h4.pb-3 Last week
+- if @products_last_week.empty?
+  .empty-week.text-center.py-5.text-muted= "Nothing here! To bad, so sad..."
+- @products_last_week.each do |product|
+  = render partial: 'product_card', locals: {product: product}
+%h4.pb-3 Previous weeks
+- if @products_previous_weeks.empty?
+  .empty-week.text-center.py-5.text-muted= "Nothing here! To bad, so sad..."
+- @products_previous_weeks.each do |product|
+  = render partial: 'product_card', locals: {product: product}
+
     
 %br
